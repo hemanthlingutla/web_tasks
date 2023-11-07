@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .container {
+            margin: auto;
+            /* border: 2px solid black; */
+            width: 800px;
+        }
+
+        #box {
+            width: 400px;
+            height: 300px;
+            position: relative;
+            animation: move 2s linear infinite;
+            top: 60px;
+        }
+
+        img {
+            height: 200px;
+            width: 300px;
+        }
+
+        @keyframes move {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: 500px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="box">
+            <img src="./img/train.jpg" alt="">
+        </div>
+        
+        <div class="but" align="center">
+            <p>click the following button to handle the animation</p>  
+            <button id="startButton">Start</button>
+            <button id="stopButton">Stop</button>
+        </div>
+    </div>
+
+    <script>
+        const box = document.getElementById('box');
+        const startButton = document.getElementById('startButton');
+        const stopButton = document.getElementById('stopButton');
+        let animationId;
+
+        startButton.addEventListener('click', () => {
+            box.style.animationPlayState = 'running';
+        });
+
+        stopButton.addEventListener('click', () => {
+            box.style.animationPlayState = 'paused';
+        });
+    </script>
+</body>
+
+</html>

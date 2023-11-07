@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Date and Time Display</title>
+    <script>
+        function displayDate() {
+            // Get the current date
+            let currentDate = new Date();
+            
+            // Array of month names
+            let monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            
+            // Format the date as "DD Month YYYY"
+            let dateFormatted = `${currentDate.getDate()} ${monthNames[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+            
+            // Display the formatted date
+            document.getElementById('dateResult').innerHTML = "Date: " + dateFormatted;
+        }
+
+        function displayTime() {
+            // Get the current time
+            let currentTime = new Date();
+
+            // Get the day, month, date, year, hours, minutes, and seconds
+            let day = currentTime.toLocaleDateString('en-US', { weekday: 'short' });
+            let month = currentTime.toLocaleDateString('en-US', { month: 'short' });
+            let date = currentTime.getDate();
+            let year = currentTime.getFullYear();
+            let hours = currentTime.getHours();
+            let minutes = currentTime.getMinutes();
+            let seconds = currentTime.getSeconds();
+            let timeZoneOffset = currentTime.getTimezoneOffset();
+
+            // Calculate the GMT offset in hours and minutes
+            let gmtHours = Math.abs(Math.floor(timeZoneOffset / 60));
+            let gmtMinutes = Math.abs(timeZoneOffset % 60);
+
+            // Determine the GMT sign (plus or minus)
+            let gmtSign = timeZoneOffset >= 0 ? '-' : '+';
+
+            // Format the time
+            let timeFormatted = `${day} ${month} ${date} ${year} ${hours}:${minutes}:${seconds} GMT${gmtSign}${gmtHours}:${gmtMinutes} (India Standard Time)`;
+
+            // Display the formatted time
+            document.getElementById('timeResult').innerHTML = "Time: " + timeFormatted;
+        }
+    </script>
+</head>
+<body>
+    <h1>Date and Time Display</h1>
+    <button onclick="displayDate()">Show Date</button>
+    <p id="dateResult"></p>
+    <br>
+    <button onclick="displayTime()">Show Time</button>
+    <p id="timeResult"></p>
+</body>
+</html>

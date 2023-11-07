@@ -1,0 +1,146 @@
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <title>Bootstrap Task-5</title>
+    <style>
+        .x{
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .btn-custom{
+            background-color: rgb(255, 177, 32);
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="bg-secondary-subtle">
+    <div class="container mt-5">
+        <div class="row was-validated">
+            <div class="col-3 text-end pe-4 pt-3">
+                <label for="fname" class="form-label">First Name</label>
+            </div>
+            <div class="col-9 x">
+                <div class="input-group has-validation">
+                    <div class="input-group-text" id="user"><i class="fa-solid fa-user"></i></div>
+                    <input type="text" name="fname" class="form-control" aria-describedby="user" placeholder="First Name" required>
+                    <div class="invalid-feedback">
+                        Please supply your firstname
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 text-end pe-4 pt-3">
+                <label for="lname" class="form-label">Last Name</label>
+            </div>
+            <div class="col-9 x">
+                <div class="input-group has-validation">
+                    <div class="input-group-text" id="user"><i class="fa-solid fa-user"></i></div>
+                    <input type="text" name="lname" class="form-control" aria-describedby="user" placeholder="Last Name" required>
+                    <div class="invalid-feedback">
+                        Please supply your lastname
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 text-end pe-4 pt-3 x">
+                <label for="email" class="form-label">E-mail</label>
+            </div>
+            <div class="col-9 x">
+                <div class="input-group has-validation">
+                    <div class="input-group-text" id="email"><i class="fa-solid fa-envelope"></i></div>
+                    <input type="email" name="email" class="form-control" aria-describedby="email" placeholder="E-mail Address" required>
+                    <div class="invalid-feedback">
+                        Please supply your email address
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 text-end pe-4 pt-3 x">
+                <label for="phone" class="form-label">Phone #</label>
+            </div>
+            <div class="col-9 x">
+                <div class="input-group has-validation">
+                    <div class="input-group-text" id="user"><i class="fa-solid fa-phone"></i></div>
+                    <input type="text" name="phone" class="form-control" aria-describedby="user" placeholder="(845)555-1212" required>
+                    <div class="invalid-feedback">
+                        Please supply your phone number
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 text-end pe-4 pt-3 x">
+                <label for="address" class="form-label">Address</label>
+            </div>
+            <div class="col-9 x">
+                <div class="input-group has-validation">
+                    <div class="input-group-text" id="house"><i class="fa-solid fa-house"></i></div>
+                    <input type="text" name="address" class="form-control" aria-describedby="house" placeholder="Address" required>
+                    <div class="invalid-feedback">
+                        Please supply your street Address
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 text-end pe-4 pt-3 x">
+                <label for="city" class="form-label">City</label>
+            </div>
+            <div class="col-9 x">
+                <div class="input-group has-validation">
+                    <div class="input-group-text" id="house"><i class="fa-solid fa-house"></i></div>
+                    <input type="text" name="city" class="form-control" aria-describedby="house" placeholder="city" required>
+                    <div class="invalid-feedback">
+                        Please supply your City
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 text-end pe-4 pt-3 x">
+                <label for="state" class="form-label">State</label>
+            </div>
+            <div class="col-9 x">
+                <div class="input-group has-validation">
+                    <div class="input-group-text" id="list"><i class="fa-solid fa-list"></i></div>
+                    <select name="state" class="form-select text-secondary" required>
+                        <option value="">Please select your state</option>
+                        <option value="1">Telangana</option>
+                        <option value="2">Andhra Pradesh</option>
+                        <option value="3">Tamil Nadu</option>
+                        <option value="4">Kerala</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please select your state
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 text-end pe-5 x">
+                <label for="choose" class="form-label">Do you have hosting?</label>
+            </div>
+            <div class="col-8 x">
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="choose1" name="choose" required>
+                    <label class="form-check-label">Yes</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="choose2" name="choose" required>
+                    <label class="form-check-label">No</label>
+                    <div class="invalid-feedback">Choose an option</div>
+                  </div>
+            </div>
+            <div class="col-4 text-end pe-5 x">
+                <label for="textarea" class="form-label">Project Description</label>
+            </div>
+            <div class="col-8 x">
+                <div class="input-group has-validation">
+                    <div class="input-group-text" id="desp"><i class="fa-solid fa-pencil"></i></div>
+                    <textarea name="desp" rows="3" class="form-control" aria-describedby="desp" placeholder="Project Description" required></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-8 x">
+                <button class="btn btn-custom">Send <i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <br>
+    </div>
+</body>
+
+</html>

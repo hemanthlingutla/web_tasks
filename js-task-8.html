@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task - 5</title>
+    <style>
+        h1 {
+            text-align: center;
+            color: blue;
+        }
+
+        form {
+            text-align: left;
+            width: 700px;
+            margin: auto;
+            border: 1px solid black;
+            padding: 20px;
+            border-radius: 20px;
+            /* background-color: white; */
+            background: linear-gradient(to bottom, #e9d961 0%, #ff99cc 100%);
+        }
+
+        th {
+            text-align: right;
+        }
+
+        button{
+            width: 100px;
+            border-radius: 10px;
+            color: white;
+            background-color: red;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .required-message {
+            color: red;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="registrationForm">
+        <h1>Registration Form:</h1>
+        <table align="center">
+            <tr>
+                <th><label for="firstName">First Name</label></th>
+                <td><input type="text" id="firstName" required></td>
+                <td class="required-message" id="firstNameMessage"></td>
+            </tr>
+            <tr>
+                <th><label for="lastName">Last Name</label></th>
+                <td><input type="text" id="lastName" required></td>
+                <td class="required-message" id="lastNameMessage"></td>
+            </tr>
+            <tr>
+                <th><label for="email">Email</label></th>
+                <td><input type="email" id="email" required></td>
+                <td class="required-message" id="emailMessage"></td>
+            </tr>
+            <tr>
+                <th><label for="password">Password</label></th>
+                <td><input type="password" id="password" required></td>
+                <td class="required-message" id="passwordMessage"></td>
+            </tr>
+            <tr>
+                <th><label for="rePassword">Re-enter Password</label></th>
+                <td><input type="password" id="rePassword" required></td>
+                <td class="required-message" id="rePasswordMessage"></td>
+            </tr>
+            <tr>
+                <th rowspan="2"><label for="gender">Gender</label></th>
+                <td><input type="radio" name="gender" id="male">Male</td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="gender" id="female">Female</td>
+            </tr>
+            <tr>
+                <th><label for="age">Age</label></th>
+                <td><input type="number" id="age" required></td>
+                <td class="required-message" id="ageMessage"></td>
+            </tr>
+            <tr>
+                <th><label for="phno">Phone Number</label></th>
+                <td><input type="tel" id="phno" required></td>
+                <td class="required-message" id="phnoMessage"></td>
+            </tr>
+            <tr>
+                <th><label for="address">Address</label></th>
+                <td><textarea name="address" id="address" cols="30" rows="10" required></textarea></td>
+                <td class="required-message" id="addressMessage"></td>
+            </tr>
+            <tr>
+                <th><label for="state">State</label></th>
+                <td><input type="text" id="state" required></td>
+                <td class="required-message" id="stateMessage"></td>
+            </tr>
+            <tr>
+                <th><label for="country">Country</label></th>
+                <td>
+                    <select name="country" id="country" required>
+                        <option value="Choose your country">Choose your country</option>
+                        <option value="India">India</option>
+                        <option value="France">France</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Japan">Japan</option>
+                    </select>
+                </td>
+                <td class="required-message" id="countryMessage"></td>
+            </tr>
+            <tr>
+                <th><label for="lang">Language Known</label></th>
+                <td>
+                    <input type="checkbox" id="english">English
+                    <input type="checkbox" id="kannada">Kannada
+                    <input type="checkbox" id="hindi">Hindi
+                    <input type="checkbox" id="telugu">Telugu
+                </td>
+                <td class="required-message" id="languagesMessage"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="checkbox" id="declaration" required>
+                    Hereby I declare all the given details are true
+                </td>
+                <td class="required-message" id="declarationMessage"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="right">
+                    Log in to <a href="https://ethnus.com/">Ethnus</a> website
+                </td>
+            </tr>
+        </table>
+        <div align="center">
+            <button type="button" id="registerButton">Register</button>
+        </div>
+    </form>
+
+    <script>
+        const registerButton = document.getElementById('registerButton');
+        const form = document.getElementById('registrationForm');
+
+        registerButton.addEventListener('click', function () {
+            const firstName = document.getElementById('firstName');
+            const lastName = document.getElementById('lastName');
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const rePassword = document.getElementById('rePassword');
+            const declaration = document.getElementById('declaration');
+            const male = document.getElementById('male');
+            const female = document.getElementById('female');
+            const age = document.getElementById('age');
+            const phno = document.getElementById('phno');
+            const address = document.getElementById('address');
+            const state = document.getElementById('state');
+            const country = document.getElementById('country');
+            const english = document.getElementById('english');
+            const kannada = document.getElementById('kannada');
+            const hindi = document.getElementById('hindi');
+            const telugu = document.getElementById('telugu');
+
+            const requiredFields = [firstName, lastName, email, password, rePassword, declaration, age, phno, address, state, country];
+            let hasEmptyFields = false;
+
+            requiredFields.forEach((field) => {
+                if (field.value.trim() === '') {
+                    field.classList.add('error');
+                    const fieldName = field.getAttribute('id');
+                    document.getElementById(`${fieldName}Message`).textContent = 'POOR';
+                    hasEmptyFields = true;
+                } else {
+                    field.classList.remove('error');
+                    const fieldName = field.getAttribute('id');
+                    document.getElementById(`${fieldName}Message`).textContent = '';
+                }
+            });
+
+            if (!male.checked && !female.checked) {
+                male.classList.add('error');
+                female.classList.add('error');
+                document.getElementById('genderMessage').textContent = 'Please select a gender.';
+                hasEmptyFields = true;
+            } else {
+                male.classList.remove('error');
+                female.classList.remove('error');
+                document.getElementById('genderMessage').textContent = '';
+            }
+
+            if (!english.checked && !kannada.checked && !hindi.checked && !telugu.checked) {
+                document.getElementById('languagesMessage').textContent = 'Please select at least one language.';
+                hasEmptyFields = true;
+            } else {
+                document.getElementById('languagesMessage').textContent = '';
+            }
+
+            if (!declaration.checked) {
+                declaration.classList.add('error');
+                document.getElementById('declarationMessage').textContent = 'You must agree to the declaration.';
+                hasEmptyFields = true;
+            } else {
+                declaration.classList.remove('error');
+                document.getElementById('declarationMessage').textContent = '';
+            }
+
+            if (hasEmptyFields) {
+                return;
+            } else {
+                form.submit(); 
+            }
+        });
+    </script>
+</body>
+</html>
